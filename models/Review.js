@@ -25,17 +25,16 @@ Review.init(
         book_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'u',
+                model: 'books',
                 key: 'id'
             }
-        }
-        
+        }  
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'post'
+        modelName: 'review'
     }
 )
 module.exports = Review;
