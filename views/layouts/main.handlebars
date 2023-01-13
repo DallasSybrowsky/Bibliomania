@@ -1,39 +1,27 @@
+<!DOCTYPE html>
 <html lang="en">
-  {{! this is the main.handlebars file }}
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Tech Blog</title>
-    <link rel="stylesheet" href="../../public/css/style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>
-          <a href="/">home</a>
-        </h1>
-        <nav>
-          {{! this is an if statement that checks if the user is logged in }}
-          {{#if loggedIn}}
-            <a href="/dashboard">dashboard</a>
-            <button id="logout" class="btn-no-style logout">logout</button>
-          {{else}}
-            <a href="/login">login</a>
-          {{/if}}
-        </nav>
-      </header>
-      <div class="site-row">
-        <div class="site-name">
-          <h1>The Tech Blog</h1>
-        </div>
-      </div>
-      <main>
-        {{! this is the body that is passed in from the controller }}
-        {{{body}}}
-      </main>
-    </div>
-    {{#if loggedIn}}
-      <script src="../../public/js/logout.js"></script>
-    {{/if}}
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bibliomania</title>
+    <link rel="stylesheet" href="./css/home.css">
+</head>
+<body>
+    <header class="grad">
+        <a><img class="logo" src="./images/bibliomania.png" alt="bibliomania logo"></a>
+        <ul class="navbar">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li> 
+            <li><a href="#">Login</a></li>
+            {{#if loggedIn}}
+            <li><a href="#">Logout</a></li>
+            {{/if}}
+        </ul>
+    </header>
+    <section class="parallax">
+        <!-- <h2 class="text">welcome to bibliomania</h2> -->
+        <img src="./images/library.jpg" class="library">
+    </section>
+</body>
 </html>

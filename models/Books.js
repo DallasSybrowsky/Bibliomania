@@ -5,7 +5,7 @@ class Books extends Model { }
 
 Books.init(
     {
-        isbn: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,

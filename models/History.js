@@ -11,7 +11,7 @@ History.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    book_id: {
+    isbn: {
       type: DataTypes.TEXT,
       allowNull: false,
       references: {
@@ -19,6 +19,15 @@ History.init(
         key: 'id'
       }
     },
+    user_id: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      references: {
+        model: 'users',
+        key: 'id'
+      }
+    },
+
   },
   {
     sequelize,
