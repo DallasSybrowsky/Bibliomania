@@ -12,12 +12,7 @@ var getISBN = function (ISBN) {
     }
   });
 };
-/*
- ======== Instagram - ronakgiriraj ======== 
- ======== Github - ronakgiriraj ======== 
- ======== Youtube - ronakgiriraj ======= 
- ======== Linkedin - ronakgiriraj =======
-*/
+
 let activeIndex = 0;
 
 const groups = document.getElementsByClassName("card-group");
