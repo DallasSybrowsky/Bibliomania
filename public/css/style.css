@@ -24,6 +24,14 @@ body {
     align-items: center;
     z-index: 50;
 }
+
+.logo{
+	width: 300px;
+}
+.grad {
+    height: 200px;
+    background-image: linear-gradient(to bottom, #09151e, transparent);
+}
 header .logo {
     filter: invert(100%);
     -webkit-filter: invert(100%);
