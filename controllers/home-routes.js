@@ -5,7 +5,7 @@ const sequelize = require("../config/connection");
 
 // Get all posts for homepage
 router.get("/", async (req, res) => {
-  res.render("login", { loggedIn: req.session.logged_in });
+  res.render("login", { logged_in: req.session.logged_in });
 });
 
 // Dashboard Route
@@ -32,7 +32,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
-router.get('/bookswipe', async (req, res) => {
+router.get('/bookswipe', withAuth, async (req, res) => {
 
   if (!req.session.logged_in) {
       res.redirect('/signup');
