@@ -32,6 +32,17 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+router.get('/bookswipe', async (req, res) => {
+
+  if (!req.session.logged_in) {
+      res.redirect('/signup');
+    } else {
+      res.render("swipe", {
+        logged_in: req.session.logged_in,
+      });
+    }
+});
+
 // Login Route
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
@@ -43,10 +54,11 @@ router.get("/login", (req, res) => {
 
 // Signup Route
 router.get("/signup", (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect("/");
-    return;
-  }
+  // if (req.session.logged_in) {
+  //   res.redirect("/");
+  //   return;
+  // }
+  console.log("Test");
   res.render("signup");
 });
 

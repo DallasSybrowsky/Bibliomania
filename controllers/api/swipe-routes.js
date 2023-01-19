@@ -3,15 +3,13 @@ const { Swipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Get all comments
-router.get('/', async (req, res) => {
-    try {
-        const commentData = await Swipe.findAll({
-        include: [{ model: User }],
-        });
-    res.status(200).json(swipeData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+router.get('/bookswipe', async (req, res) => {
+
+    if (req.session.logged_in) {
+        res.redirect('/signup');
+      } else {
+        res.render("swipe");
+      }
 });
 
 // Get one comment

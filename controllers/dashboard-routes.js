@@ -3,6 +3,7 @@ const sequelize = require("../config/connection");
 const { User } = require("../models");
 const withAuth = require("../utils/auth");
 
+
 // Get all posts for homepage
 // router.get('/', withAuth, async (req, res) => {
 //     try {
