@@ -1,137 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,500;0,700;1,100;1,300;1,500;1,700&display=swap');
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
-}
-
-body {
-	min-height: 100vh;
-	background: linear-gradient(#5e6bda, #222746);
-
-}
-
-header {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding: 30px 100px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	z-index: 50;
-}
-
-.logo {
-	width: 300px;
-}
-
-.grad {
-	height: 200px;
-	background-image: linear-gradient(to bottom, #09151e, transparent);
-}
-
-header .logo {
-	filter: invert(100%);
-	-webkit-filter: invert(100%);
-}
-
-header ul {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-header ul li {
-	list-style: none;
-	margin-left: 20px;
-}
-
-header ul li a {
-	text-decoration: none;
-	padding: 6px 15px;
-	color: #fff;
-	border-radius: 20px;
-}
-
-header ul li a:hover,
-header ul li a.active {
-	background: #fff;
-	color: #5e6bda;
-	border-radius: 20px;
-}
-
-section {
-	position: relative;
-	width: 100%;
-	height: 100vh;
-	padding: 100px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-section img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-#mountainL {
-	position: absolute;
-	top: 0;
-	left: 1000;
-	width: 95vw;
-	z-index: 2;
-	color: #000;
-}
-
-#mountainR {
-	position: absolute;
-	right: -10;
-	width: 70vw;
-	z-index: 1;
-
-}
-
-#text {
-	position: absolute;
-	color: #fff;
-	white-space: nowrap;
-	font-size: 7.5vw;
-	z-index: 9;
-}
-
-
-/* --------------------------------------------------------this is the sign up htm page css ------------------------------*/
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
 	box-sizing: border-box;
 }
 
-.body-class::before {
-	content: "";
-	background-image: url('../images/library.jpg');
-	width: 200vw;
-	background-size: cover;
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
-	opacity: 0.5;
+.body-class::before {    
+    content: "";
+    background-image: url('../images/library.jpg'); 
+    width: 200vw;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
 }
 
 
 .body-class {
-
+	
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -163,7 +51,7 @@ span {
 }
 
 a {
-	color: #333;
+	 color: #333; 
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
@@ -217,8 +105,8 @@ input {
 .container {
 	background-color: #fff;
 	border-radius: 10px;
-	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-		0 10px 10px rgba(0, 0, 0, 0.22);
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
 	width: 768px;
@@ -258,15 +146,12 @@ input {
 }
 
 @keyframes show {
-
-	0%,
-	49.99% {
+	0%, 49.99% {
 		opacity: 0;
 		z-index: 1;
 	}
-
-	50%,
-	100% {
+	
+	50%, 100% {
 		opacity: 1;
 		z-index: 5;
 	}
@@ -283,13 +168,13 @@ input {
 	z-index: 100;
 }
 
-.container.right-panel-active .overlay-container {
+.container.right-panel-active .overlay-container{
 	transform: translateX(-100%);
 }
 
 .overlay {
-	background: #222746;
-	background: -webkit-linear-gradient(to right, #20254b, #5e6bda);
+	background:#222746;
+	background: -webkit-linear-gradient(to right, #20254b , #5e6bda);
 	background: linear-gradient(to right, #222746, #5e6bda);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -299,12 +184,12 @@ input {
 	left: -100%;
 	height: 100%;
 	width: 200%;
-	transform: translateX(0);
+  	transform: translateX(0);
 	transition: transform 0.6s ease-in-out;
 }
 
 .container.right-panel-active .overlay {
-	transform: translateX(50%);
+  	transform: translateX(50%);
 }
 
 .overlay-panel {
@@ -353,4 +238,3 @@ input {
 	height: 40px;
 	width: 40px;
 }
-
