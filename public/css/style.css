@@ -10,6 +10,7 @@
 body {
     min-height: 100vh;
     background: linear-gradient(#5e6bda,#222746);
+    
 }
 
  header {
@@ -23,13 +24,17 @@ body {
     align-items: center;
     z-index: 50;
 }
+
+.logo{
+	width: 300px;
+}
+.grad {
+    height: 200px;
+    background-image: linear-gradient(to bottom, #09151e, transparent);
+}
 header .logo {
-        color: #fff;
-        font-weight: 700;
-        text-decoration: none;
-        font-size: 2em;
-        text-transform: uppercase;
-        letter-spacing: 2px;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
 }
 
 header ul {
@@ -108,7 +113,7 @@ section img {
 
 .body-class::before {    
     content: "";
-    background-image: url('../images/libraryleft.jpg'); 
+    background-image: url('../images/library.jpg'); 
     width: 200vw;
     background-size: cover;
     position: absolute;
@@ -897,3 +902,64 @@ input {
         background-image: url('../images/greenthumbs.png'); 
       }
       
+ .body-class{
+         background:#322f74;
+        user-select:none; 
+        background-image: url('../images/libraryleft.jpg');
+        opacity: 0.9; 
+      }
+      label{
+        filter: grayscale(100%);
+      }
+      #likeInput:checked + .likeLabel{
+        filter: grayscale(0%);
+      }
+      #dislikeInput:checked + .dislikeLabel{
+        filter: grayscale(0%);
+      }
+      input{
+        display:none;
+      }
+      img{
+        width:100px;
+      }
+       label{
+        width:100px;
+        display:flex;
+        text-align:center;
+        justify-content:center;
+        margin:0px 25px;
+        padding:20px;
+        border-radius:50%;
+        cursor:pointer;
+      } 
+       .kapsayici{
+        margin:auto;
+        display:flex;
+        text-align:center;
+        justify-content:center;
+        background-color:#333;
+        width:380px;
+        border-radius:100px;
+        position:fixed;
+        left:0px;
+        right:0px;
+        bottom:70px;
+      } 
+      .image-class{
+        width:600px;
+        height:300px;
+        margin:auto;
+        margin-top:40px;
+        overflow:hidden;
+        display:flex;
+        text-align:center;
+        justify-content:center;
+        border-radius:20px;
+       
+      }
+      
+.videoDiv {
+    opacity: inherit;
+      }
+     
