@@ -16,18 +16,14 @@ Swipes.init(
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
-            references: {
-                model: 'books',
-                key: 'id'
-            }
         },
         user_id: {
             type: DataTypes.STRING,
             allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
+            // references: {
+            //     model: 'user',
+            //     key: 'id'
+            // }
         }
     },
     {

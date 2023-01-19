@@ -1,52 +1,78 @@
+const keyWords = [
+  "the",
+  "self-help",
+  "self-improvement",
+  "religious",
+  "non-fiction",
+  "cyber-punk",
+  "science-fiction",
+  "romance",
+  "game-of-thrones",
+  "sea",
+  "popular",
+  "How To Win Friends and Influence People",
+  "Robert Greene",
+  "Philosophy",
+  "The Secret",
+  "Harry Potter",
+  "Dune",
 
+];
 
-const ISBN = require( 'isbn-validate' );
-const digitArray = [9.78*10**12,9.79*10**12];
-const firstThreeDig = digitArray[Math.floor(Math.random() * digitArray.length)];
-const randomIsbn = firstThreeDig+(Math.floor(Math.random()*10**10));
+const defaultLinks = [
+  "https://covers.openlibrary.org/b/isbn/9781511327794-L.jpg",
+  "https://covers.openlibrary.org/b/isbn/0008354553-L.jpg",
+  "https://covers.openlibrary.org/b/isbn/9780192816245-L.jpg",
+  "https://covers.openlibrary.org/b/isbn/0534526411-L.jpg",
+  "https://covers.openlibrary.org/b/isbn/055347359X-L.jpg",
+  "https://covers.openlibrary.org/b/isbn/9781782124207-L.jpg",
+  "https://covers.openlibrary.org/b/isbn/9781408855669-L.jpg",
+  "https://covers.openlibrary.org/b/isbn/3596907160-L.jpg",
+  "https://covers.openlibrary.org/b/isbn/1439501661-L.jpg",
+  "https://covers.openlibrary.org/b/isbn/0140444785-L.jpg"
 
+]
 
+const bookImageEl = document.querySelector("#book-image")
 
-console.log(randomIsbn);
-const isbnValidate = ISBN.Validate(randomIsbn);
-if (!isbnValidate) {
-    console.log(true);
-} else {
-    console.log(false);
-}
+const chosenKeyWord = keyWords[Math.floor(Math.random() * keyWords.length)];
+const chosenLink = defaultLinks[Math.floor(Math.random() * defaultLinks.length)];
 
-var bookCover = function (books) {
-    var url = `https://www.googleapis.com/books/v1/volumes?q=${books}`;
-    fetch(url, requestOptions).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (data) {
-          var chosenBook =
-            data.results[Math.floor(Math.random() * data.results.length)];
-            console.log(chosenBook);
-        });
-        
-      }
-    });
-  };
+// fetch random isbn from array
+const bookFetch = async (word) => {
+  const url = `https://openlibrary.org/search.json?q=${word}`;
+
+  const response = await fetch(url);
+
+  const data = await response.json();
+
+  let targetBook = data.docs[Math.floor(Math.random() * data.docs.length)];
+
+  while (!targetBook.isbn) {
+    targetBook = data.docs[Math.floor(Math.random() * data.docs.length)];
+  }
+
+  const isbn = targetBook.isbn[0];
+
+  console.log(targetBook);
   
-  // used in getSpoonacularID to acquire specific recipe information
-//   var chosenRecipeInstructions = function (chosenRecipeID) {
-//     var url = `https://api.spoonacular.com/recipes/${chosenRecipeID}/information?apiKey=b286b8d959d04a8b8162b7f531ff9213`;
-//     fetch(url, requestOptions).then(function (response) {
-//       if (response.ok) {
-//         response.json().then(function (data) {
-//           chosenRecipeTitle = data.title;
-//           dinnerNameEl.innerHTML = chosenRecipeTitle;
-//           var recipeInstructions = data.instructions;
-//           dinnerInstructionsEl.innerHTML = recipeInstructions;
-//           var ingredients = data.extendedIngredients;
-//           dinnerIngredientsHeaderEl.innerHTML = "INGREDIENTS";
-//           dinnerInstructionsHeaderEl.innerHTML = "INSTRUCTIONS";
-//           for (var i = 0; i < ingredients.length; i++) {
-//             var recipeIngredients = ingredients[i].original;
-//             dinnerIngredientEl.innerHTML += `<li>${recipeIngredients}</li>`;
-//           }
-//         });
-//       }
-//     });
-//   };
+  bookCover(isbn);
+};
+
+bookFetch(chosenKeyWord);
+
+// insert isbn into link
+const bookCover = (isbn) => {
+  let coverURL = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
+
+  console.log(coverURL);
+  bookImageEl.innerHTML = `<img src='${coverURL}'/>`;
+  fetch(coverURL).then((res) => res.text() ).then((data) => {
+    if (data === "not found" || data === "internal server error") {
+      coverURL = chosenLink;
+      console.log(coverURL);
+      bookImageEl.innerHTML = `<img src='${chosenLink}'/>`;
+    } 
+  });
+
+}
