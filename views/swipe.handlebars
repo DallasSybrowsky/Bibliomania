@@ -8,7 +8,7 @@
       <div class="kapsayici">
         <input type="radio" name="radio" id="likeInput" />
         <label for="likeInput" class="likeLabel">
-          <img
+          <img class="img-swipe"
             draggable="false"
             src="https://i.hizliresim.com/seigsy3.png"
             class="like"
@@ -29,7 +29,7 @@
 .body-class {
     background: #322F74;
     user-select: none;
-    background-image: url('../public/images/library.jpg');
+    background-image: url('../public/images/library.jpg') !important;
     opacity: 0.9;
 }
 label {
@@ -41,10 +41,8 @@ label {
 #dislikeInput:checked+.dislikeLabel {
     filter: grayscale(0%);
 }
-/* input{
-        display:none;
-      } */
-img {
+
+img{
     width: 100px;
 }
 label {
@@ -62,7 +60,7 @@ label {
     display: flex;
     text-align: center;
     justify-content: center;
-    background-color: #333;
+    
     width: 380px;
     border-radius: 100px;
     position: fixed;
@@ -86,5 +84,13 @@ label {
 }
 .library {
   display: none;
+}
+.likeLabel{
+  position: relative;
+  right:50px;
+}
+.dislikeLabel{
+  position: relative;
+  right:50px;
 }
     </style>
