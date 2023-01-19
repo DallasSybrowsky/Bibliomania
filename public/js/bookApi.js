@@ -14,7 +14,9 @@ const keyWords = [
   "Robert Greene",
   "Philosophy",
   "The Secret",
-  "Harry Potter"
+  "Harry Potter",
+  "Dune",
+
 ];
 
 const defaultLinks = [
@@ -24,14 +26,18 @@ const defaultLinks = [
   "https://covers.openlibrary.org/b/isbn/0534526411-L.jpg",
   "https://covers.openlibrary.org/b/isbn/055347359X-L.jpg",
   "https://covers.openlibrary.org/b/isbn/9781782124207-L.jpg",
-  "https://covers.openlibrary.org/b/isbn/9781408855669-L.jpg"
+  "https://covers.openlibrary.org/b/isbn/9781408855669-L.jpg",
+  "https://covers.openlibrary.org/b/isbn/3596907160-L.jpg",
+  "https://covers.openlibrary.org/b/isbn/1439501661-L.jpg",
+  "https://covers.openlibrary.org/b/isbn/0140444785-L.jpg"
+
 ]
 
 const bookImageEl = document.querySelector("#book-image")
 
 const chosenKeyWord = keyWords[Math.floor(Math.random() * keyWords.length)];
 const chosenLink = defaultLinks[Math.floor(Math.random() * defaultLinks.length)];
-// console.log(chosenLink);
+
 // fetch random isbn from array
 const bookFetch = async (word) => {
   const url = `https://openlibrary.org/search.json?q=${word}`;
@@ -55,6 +61,7 @@ const bookFetch = async (word) => {
 
 bookFetch(chosenKeyWord);
 
+// insert isbn into link
 const bookCover = (isbn) => {
   let coverURL = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
 
@@ -69,4 +76,3 @@ const bookCover = (isbn) => {
   });
 
 }
-// insert isbn into link
