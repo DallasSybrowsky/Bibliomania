@@ -5,7 +5,6 @@
           src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
         />
       </div>
-
       <div class="kapsayici">
         <input type="radio" name="radio" id="likeInput" />
         <label for="likeInput" class="likeLabel">
@@ -25,10 +24,10 @@
         </label>
       </div>
     </body>
-
     <style>
       /* ###################### this is the slider */
 .body-class {
+<<<<<<< HEAD
 background: #322F74;
 user-select: none;
 background-image: url('../public/images/library.jpg');
@@ -86,5 +85,66 @@ label{
 }
 .library{
 	display: none;
+=======
+    background: #322F74;
+    user-select: none;
+    background-image: url('../public/images/library.jpg');
+    opacity: 0.9;
+}
+label {
+    filter: grayscale(100%);
+}
+#likeInput:checked+.likeLabel {
+    filter: grayscale(0%);
+}
+#dislikeInput:checked+.dislikeLabel {
+    filter: grayscale(0%);
+}
+/* input{
+        display:none;
+      } */
+img {
+    width: 100px;
+}
+label {
+    width: 100px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 0px 25px;
+    padding: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.kapsayici {
+    margin: auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: #333;
+    width: 380px;
+    border-radius: 100px;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 70px;
+}
+.image-class {
+    width: 600px;
+    height: 300px;
+    margin: auto;
+    margin-top: 40px;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+.videoDiv {
+    opacity: inherit;
+}
+.library {
+  display: none;
+>>>>>>> d0c0e188886d9d1d9be71d4a9f239a2221ac2cb7
 }
     </style>
