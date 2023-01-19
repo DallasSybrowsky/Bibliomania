@@ -29,74 +29,62 @@
     <style>
       /* ###################### this is the slider */
 .body-class {
-	background: #322f74;
-	user-select: none;
-	background-image: url('../images/libraryleft.jpg');
-	opacity: 0.9;
-}
+background: #322F74;
+user-select: none;
+background-image: url('../public/images/library.jpg');
+background-repeat: no-repeat;
 
-label {
-	filter: grayscale(100%);
 }
-
-#likeInput:checked+.likeLabel {
-	filter: grayscale(0%);
-}
-
-#dislikeInput:checked+.dislikeLabel {
-	filter: grayscale(0%);
-}
-
-/* input{
-        display:none;
-      } */
-img {
-	width: 100px;
-}
-
-label {
-	width: 100px;
-	display: flex;
-	text-align: center;
-	justify-content: center;
-	margin: 0px 25px;
-	padding: 20px;
-	border-radius: 50%;
-	cursor: pointer;
-}
-
 .kapsayici {
-	margin: auto;
-	display: flex;
-	text-align: center;
-	justify-content: center;
-	background-color: #333;
-	width: 380px;
-	border-radius: 100px;
-	position: fixed;  
-	left: 0px;
-	right: 0px;
-	bottom: 70px;
+margin: auto;
+display: flex;
+text-align: center;
+justify-content: center;
+background-color: #333;
+width: 380px;
+border-radius: 100px;
+position: fixed;
+left: 0px;
+right: 0px;
+bottom: 70px;
 }
-
 .image-class {
-	width: 600px;
-	height: 300px;
-	margin: auto;
-	margin-top: 40px;
-	overflow: hidden;
-	display: flex;
-	text-align: center;
-	justify-content: center;
-	border-radius: 20px;
-
+width: 600px;
+height: 300px;
+margin: auto;
+margin-top: 40px;
+overflow: hidden;
+display: flex;
+text-align: center;
+justify-content: center;
+border-radius: 20px;
 }
-
-.videoDiv {
-	opacity: inherit;
+label{
+  filter: grayscale(100%);
 }
-
-.library {
-  display: none;
+#likeInput:checked + .likeLabel{
+  filter: grayscale(0%);
+}
+#dislikeInput:checked + .dislikeLabel{
+  filter: grayscale(0%);
+}
+input{
+  display:none;
+}
+img{
+  width:100px;
+}
+label{
+  width:100px;
+  display:flex;
+  text-align:center;
+  justify-content:center;
+  margin:0px 25px;
+  padding:20px;
+  border-radius:50%;
+  cursor:pointer;
+}
+.library{
+	display: none;
 }
     </style>
