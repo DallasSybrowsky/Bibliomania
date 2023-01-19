@@ -83,7 +83,7 @@ section img {
 	object-fit: cover;
 }
 
-#mountainL {
+/* #mountainL {
 	position: absolute;
 	top: 0;
 	left: 1000;
@@ -98,7 +98,7 @@ section img {
 	width: 70vw;
 	z-index: 1;
 
-}
+} */
 
 #text {
 	position: absolute;
@@ -131,7 +131,6 @@ section img {
 
 
 .body-class {
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -258,13 +257,11 @@ input {
 }
 
 @keyframes show {
-
 	0%,
 	49.99% {
 		opacity: 0;
 		z-index: 1;
 	}
-
 	50%,
 	100% {
 		opacity: 1;
