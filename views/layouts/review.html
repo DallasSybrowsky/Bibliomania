@@ -36,4 +36,79 @@
          
       </div>
 </body>
-</html>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+* {
+    box-sizing: border-box;
+}
+.body-reviews{
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  
+}
+.title-comment{
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+}
+.title-liked{
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+}
+.like-div{
+  color: #fff;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.comment-div{
+  color: #fff;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.main{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.col-1{
+  width: 20%;
+  background: linear-gradient(-45deg, #3f3e4f, #6a677a, #3b5cbd, #282088);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+.col-2{
+  width: 80%;
+  background-image: url('../../public/images/brownBook.jpeg');
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 2px 0 0 2px #ddd;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.column {
+    float: left;
+    padding: 10px 0 0 10px;
+    height: 900px; 
+}
+/* Mobile responsive */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+</style>
