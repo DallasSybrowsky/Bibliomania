@@ -7,26 +7,26 @@ const sequelize = require("../config/connection");
 // http://localhost:3001/
 // renders login
 router.get("/", async (req, res) => {
-  console.log('login');
+  console.log("login");
   res.render("login", { logged_in: req.session.logged_in });
 });
 
 // Dashboard Route
 router.get("/dashboard", withAuth, async (req, res) => {
   if (!req.session.logged_in) {
-    res.redirect('/login');
+    res.redirect("/login");
   } else {
     try {
       const swipedBooks = await Swipes.findAll({
         where: {
           user_id: req.session.user_id,
-        }
+        },
       });
       const swipes = swipedBooks.map((post) => post.get({ plain: true }));
       res.render("dashboard", {
         swipes,
         logged_in: req.session.logged_in,
-        include: [{ model: Books }]
+        include: [{ model: Books }],
       });
     } catch (err) {
       console.log(err);
@@ -35,15 +35,14 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
-router.get('/bookswipe', withAuth, async (req, res) => {
-
+router.get("/bookswipe", withAuth, async (req, res) => {
   if (!req.session.logged_in) {
-      res.redirect('/signup');
-    } else {
-      res.render("swipe", {
-        logged_in: req.session.logged_in,
-      });
-    }
+    res.redirect("/signup");
+  } else {
+    res.render("swipe", {
+      logged_in: req.session.logged_in,
+    });
+  }
 });
 
 // Login Route
@@ -63,6 +62,11 @@ router.get("/signup", (req, res) => {
   // }
   console.log("Test");
   res.render("signup");
+});
+
+// About Route
+router.get("/about", async (req, res) => {
+  res.render("about");
 });
 
 module.exports = router;
