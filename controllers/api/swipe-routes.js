@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Swipe } = require('../../models');
+const { Swipes } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Get all comments
@@ -16,7 +16,7 @@ router.get('/bookswipe', withAuth, async (req, res) => {
 router.post('/liked', withAuth, async (req, res) => {
     console.log(req.body.isbn);
     try {
-        const swipeData = await Swipe.create({
+        const swipeData = await Swipes.create({
           isbn: req.body.isbn,
           user_id: req.session.user_id,
         });
