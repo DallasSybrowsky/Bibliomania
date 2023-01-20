@@ -2,11 +2,12 @@ const router = require('express').Router();
 
 const apiRoutes = require('./api');
 const homeRoutes = require('./home-routes');
-// const dashboardRoutes = require('./dashboard-routes');
 
+
+//http://localhost:3001/
 router.use('/', homeRoutes);
+//http://localhost:3001/api
 router.use('/api', apiRoutes);
-// router.use('/dashboard', dashboardRoutes);
 
 
 module.exports = router;
