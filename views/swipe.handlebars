@@ -1,114 +1,108 @@
-    <body class="body-class">
-     
-      <div class="videoDiv image-class" id = "book-image">
-        {{!-- <img
-          class="image-class"
-          src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-        /> --}}
-		
-      </div>
-      <div class="kapsayici">
-        <input type="radio" name="radio" id="likeInput" />
-        <label for="likeInput" class="likeLabel">
-          <img
-            draggable="false"
-            src="https://i.hizliresim.com/seigsy3.png"
-            class="like"
-          />
-        </label>
-        <input type="radio" name="radio" id="dislikeInput" />
-        <label for="dislikeInput" class="dislikeLabel">
-          <img
-            draggable="false"
-            src="https://i.hizliresim.com/l3xxttm.png"
-            class="dislike"
-          />
-        </label>
-      </div>
-    </body>
-	<script src="js/bookApi.js"></script>
-    <style>
-      /* ###################### this is the slider */
-      
-.body-class {
-    user-select: none;
-    background-image: url('./images/library.jpg') !important;
+<body class="body-class">
+  <div class="videoDiv image-class" id="book-image">
+  </div>
+  <div class="kapsayici">
+    <input type="radio" name="radio" id="likeInput" />
+    <label for="likeInput" class="likeLabel">
+      <img
+        draggable="false"
+        src="https://i.hizliresim.com/seigsy3.png"
+        class="like"
+      />
+    </label>
+    <input type="radio" name="radio" id="dislikeInput" />
+    <label for="dislikeInput" class="dislikeLabel">
+      <img
+        draggable="false"
+        src="https://i.hizliresim.com/l3xxttm.png"
+        class="dislike"
+      />
+    </label>
+  </div>
+</body>
+<script src="js/bookApi.js"></script>
+<style>
+  /* ###################### this is the slider */ 
+  .body-class { 
+    user-select: none; 
+    background-image: url('./images/library.jpg') !important; 
     opacity: 0.9;
-}
-label {
-    filter: grayscale(100%);
-}
-#likeInput:checked+.likeLabel {
-    filter: grayscale(0%);
-}
-#dislikeInput:checked+.dislikeLabel {
-    filter: grayscale(0%);
-}
+  } 
+  label { filter: grayscale(100%); 
+  } 
+  #likeInput:checked+.likeLabel { filter:
+    grayscale(0%); }
 
-#book-image{
-    width: 600px;
-    
-    margin: auto;
-   
-    overflow: hidden;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    border-radius: 20px;
-}
- .dislike{
-    width: 100px;
-}
-.like{
-    width: 100px;
-} 
-#likeInput{
-  display: none;
-}
-#dislikeInput{
-  display: none;
-}
+  #dislikeInput:checked+.dislikeLabel { 
+    filter: grayscale(0%);
+  }
 
-label {
-    width: 100px;
+  #book-image{ 
+    width: 600px; 
+    margin: auto; 
+    overflow: hidden; 
     display: flex;
-    text-align: center;
-    justify-content: center;
-    margin: 0px 25px;
+    text-align: center; 
+    justify-content: center; 
+    border-radius: 20px; 
+  }
+
+  .dislike{ 
+    width: 100px; 
+  }
+
+  .like { 
+    width: 100px; 
+  } 
+  
+  #likeInput { 
+    display: none; 
+  }
+
+  #dislikeInput { 
+    display: none; 
+  } 
+
+  label { 
+    width: 100px; 
+    display: flex;
+    text-align: center; 
+    justify-content: center; 
+    margin: 0px 25px; 
     padding: 20px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-.kapsayici {
-    margin: auto;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    
-    width: 380px;
-    border-radius: 100px;
-    position: fixed;
-    left: 0px;
-    right: 0px;
-    bottom: 70px;
-}
-.image-class {
-    width: 600px;
-   
-    margin: auto;
-    margin-top: 40px;
-    overflow: hidden;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    
-}
-.videoDiv {
-    opacity: inherit;
-}
-.library {
-  display: none;
-}
+    border-radius: 50%; 
+    cursor: pointer; 
+  } 
 
-    </style>
-    
+  .kapsayici { 
+    margin: auto; 
+    display: flex; 
+    text-align: center; 
+    justify-content: center; 
+    width: 380px;
+    border-radius: 100px; 
+    position: fixed; 
+    left: 0px; 
+    right: 0px; 
+    bottom: 70px; 
+  }
+
+  .image-class { 
+    width: 600px; 
+    margin: auto; 
+    margin-top: 40px; 
+    overflow: hidden;
+    display: flex; 
+    text-align: center; 
+    justify-content: center; 
+  }
+
+  .videoDiv {
+    opacity: inherit; 
+  } 
+
+  .library { 
+    display: none; 
+    }
+
+</style>
