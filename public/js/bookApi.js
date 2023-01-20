@@ -34,6 +34,8 @@ const defaultLinks = [
 ]
 
 const bookImageEl = document.querySelector("#book-image")
+const likeCover = document.querySelector(".like")
+const dislikeCover = document.querySelector(".dislike")
 
 const chosenKeyWord = keyWords[Math.floor(Math.random() * keyWords.length)];
 const chosenLink = defaultLinks[Math.floor(Math.random() * defaultLinks.length)];
@@ -59,7 +61,7 @@ const bookFetch = async (word) => {
   bookCover(isbn);
 };
 
-bookFetch(chosenKeyWord);
+
 
 // insert isbn into link
 const bookCover = (isbn) => {
@@ -76,3 +78,11 @@ const bookCover = (isbn) => {
   });
 
 }
+
+likeCover.addEventListener("click",function(){
+  bookFetch(chosenKeyWord);
+})
+
+dislikeCover.addEventListener("click",function(){
+  bookFetch(chosenKeyWord);
+})

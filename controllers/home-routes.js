@@ -4,7 +4,10 @@ const withAuth = require("../utils/auth");
 const sequelize = require("../config/connection");
 
 // Get all posts for homepage
+// http://localhost:3001/
+// renders login
 router.get("/", async (req, res) => {
+  console.log('login');
   res.render("login", { logged_in: req.session.logged_in });
 });
 
