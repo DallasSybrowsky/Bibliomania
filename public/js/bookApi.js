@@ -56,7 +56,6 @@ const bookFetch = async (word) => {
 
   const isbn = targetBook.isbn[0];
 
-  console.log(targetBook);
   var like = false
   bookCover(isbn, like);
 };
@@ -75,8 +74,9 @@ const bookFetchLike = async (word) => {
   }
 
   const isbn = targetBook.isbn[0];
+  const title = targetBook.title[0];
+  console.log(title,"title line 78");
 
-  console.log(targetBook);
   var like = true;
   bookCover(isbn, like);
 };
