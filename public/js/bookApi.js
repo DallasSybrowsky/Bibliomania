@@ -61,24 +61,20 @@ const bookFetch = async (word) => {
   bookCover(isbn, like);
 };
 
-const bookFetchLike = async (word) => {
-  const url = `https://openlibrary.org/search.json?q=${word}`;
-
-  const response = await fetch(url);
-
-  const data = await response.json();
-
-  let targetBook = data.docs[Math.floor(Math.random() * data.docs.length)];
-
-  while (!targetBook.isbn) {
-    targetBook = data.docs[Math.floor(Math.random() * data.docs.length)];
-  }
-
-  const isbn = targetBook.isbn[0];
-
-  console.log(targetBook);
+const bookFetchLike = async () => {
+  const image = document.querySelector("#book-image").children;
+  const url = image[0].src;
+  let reg = new RegExp('https://covers.openlibrary.org/b/isbn/(.*)-L.jpg');
+  const test = reg.exec(url);
+  const isbn = test[1];
   var like = true;
-  bookCover(isbn, like);
+  // bookCover(isbn, like);
+  fetch('/api/swipe/liked', {
+    method: 'POST',
+    body: JSON.stringify({ isbn }),
+    headers: { "Content-Type": "application/json" }
+  });
+  bookFetch(chosenKeyWord);
 };
 
 
@@ -86,8 +82,6 @@ const bookFetchLike = async (word) => {
 // insert isbn into link
 const bookCover = async (isbn, like) => {
   let coverURL = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
-  console.log(isbn);
-  console.log(coverURL);
   bookImageEl.innerHTML = `<img src='${coverURL}'/>`;
   fetch(coverURL).then((res) => res.text()).then((data) => {
     if (data === "not found" || data === "internal server error") {
@@ -96,21 +90,22 @@ const bookCover = async (isbn, like) => {
       // console.log(coverURL);
       // bookImageEl.innerHTML = `<img src='${chosenLink}'/>`;
       if (like) {
-        fetch('/api/swipe/liked', {
-          method: 'POST',
-          body: JSON.stringify({ isbn }),
-          headers: { "Content-Type": "application/json" }
-        });
+        console.log(isbn);
+        // fetch('/api/swipe/liked', {
+        //   method: 'POST',
+        //   body: JSON.stringify({ isbn }),
+        //   headers: { "Content-Type": "application/json" }
+        // });
         console.log("Liked!");
         bookFetch(chosenKeyWord);
-      } else { bookFetch(); }
+      } else { bookFetch(chosenKeyWord); }
     }
   });
 
 }
 
 likeCover.addEventListener("click", function () {
-  bookFetchLike(chosenKeyWord);
+  bookFetchLike();
 })
 
 dislikeCover.addEventListener("click", function () {
