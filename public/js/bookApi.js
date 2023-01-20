@@ -57,34 +57,66 @@ const bookFetch = async (word) => {
   const isbn = targetBook.isbn[0];
 
   console.log(targetBook);
-  
-  bookCover(isbn);
+  var like = false
+  bookCover(isbn, like);
+};
+
+const bookFetchLike = async (word) => {
+  const url = `https://openlibrary.org/search.json?q=${word}`;
+
+  const response = await fetch(url);
+
+  const data = await response.json();
+
+  let targetBook = data.docs[Math.floor(Math.random() * data.docs.length)];
+
+  while (!targetBook.isbn) {
+    targetBook = data.docs[Math.floor(Math.random() * data.docs.length)];
+  }
+
+  const isbn = targetBook.isbn[0];
+
+  console.log(targetBook);
+  var like = true;
+  bookCover(isbn, like);
 };
 
 
 
 // insert isbn into link
-const bookCover = (isbn) => {
+const bookCover = async (isbn, like) => {
   let coverURL = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
-
+  console.log(isbn);
   console.log(coverURL);
   bookImageEl.innerHTML = `<img src='${coverURL}'/>`;
-  fetch(coverURL).then((res) => res.text() ).then((data) => {
+  fetch(coverURL).then((res) => res.text()).then((data) => {
     if (data === "not found" || data === "internal server error") {
-      coverURL = chosenLink;
-      console.log(coverURL);
-      bookImageEl.innerHTML = `<img src='${chosenLink}'/>`;
-    } 
+      // let coverURL = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
+      // coverURL = chosenLink;
+      // console.log(coverURL);
+      // bookImageEl.innerHTML = `<img src='${chosenLink}'/>`;
+      if (like) {
+        fetch('/api/swipe/liked', {
+          method: 'POST',
+          body: JSON.stringify({ isbn }),
+          headers: { "Content-Type": "application/json" }
+        });
+        console.log("Liked!");
+        bookFetch(chosenKeyWord);
+      } else { bookFetch(); }
+    }
   });
 
 }
 
-likeCover.addEventListener("click",function(){
+likeCover.addEventListener("click", function () {
+  bookFetchLike(chosenKeyWord);
+})
+
+dislikeCover.addEventListener("click", function () {
   bookFetch(chosenKeyWord);
 })
 
-dislikeCover.addEventListener("click",function(){
-  bookFetch(chosenKeyWord);
-})
+bookFetch(chosenKeyWord);
 
 document.body.className = "body-class";
