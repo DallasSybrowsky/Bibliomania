@@ -86,3 +86,5 @@ likeCover.addEventListener("click",function(){
 dislikeCover.addEventListener("click",function(){
   bookFetch(chosenKeyWord);
 })
+
+document.body.className = "body-class";
