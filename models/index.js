@@ -1,6 +1,6 @@
 const User = require("./User");
 const Review = require("./Review");
-const Swipe = require("./Swipe");
+const Swipes = require("./Swipe");
 
 
 User.hasMany(Review, {
@@ -22,5 +22,5 @@ Review.belongsTo(User, {
 module.exports = {
   User,
   Review,
-  Swipe
+  Swipes
 };
