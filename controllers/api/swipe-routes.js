@@ -12,7 +12,7 @@ router.get('/bookswipe', withAuth, async (req, res) => {
     res.render("swipe");
 });
 
-// Get one comment
+// post likes
 router.post('/liked', withAuth, async (req, res) => {
     console.log(req.body.isbn);
     try {
