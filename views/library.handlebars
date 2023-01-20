@@ -1,8 +1,8 @@
 <body class="body-reviews">
   <div class="main">
-    <div class="column col-1">
+    <div class="library-div">
       <!-- <a><img class="logo" src="../../public/images/bookReviewStar.jpeg" alt="bibliomania logo"></a>  -->
-      <h1 class="title-liked">Here Are The Books You Liked </h1>
+      <h1 class="title-liked"> My Library </h1>
       <div class="like-div">
         {{#each finalLikes}}
         <p id="{{isbn}}">{{isbn}}</p>
@@ -17,89 +17,43 @@
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
   * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
   }
-
-  .body-reviews {
+  .main{
+    position: relative;
+    bottom: 12em ;
+  }
+  .background {
+    position: relative;
+    width: 100%;
     height: 100vh;
-    font-family: 'Poppins', sans-serif;
-  }
-
-  .title-comment {
-    font-family: 'Pacifico', cursive;
-    font-size: 2rem;
-    color: #fff;
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .title-liked {
-    font-family: 'Pacifico', cursive;
-    font-size: 2rem;
-    color: #fff;
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .like-div {
-    color: #fff;
-    margin-top: 20px;
-    margin-left: 20px;
-  }
-
-  .comment-div {
-    color: #fff;
-    margin-top: 20px;
-    margin-left: 20px;
-  }
-
-  .main {
+    padding: 100px;
     display: flex;
-    flex-direction: row;
-    height: 100vh;
-  }
+    justify-content: center;
+    align-items: center;
+    
+    
+	background: linear-gradient(-45deg, #5E6BDA, #222746, #09151E, #0000);
+	background-size: 400% 400%;
+	animation: gradient 20s ease infinite;
+	height: 100vh;
 
-  .col-1 {
-    width: 20%;
-    background: linear-gradient(-45deg, #3F3E4F, #6A677A, #3B5CBD, #282088);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-  }
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 
-  .col-2 {
-    width: 80%;
-    background-image: url('../../public/images/brownBook.jpeg');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    box-shadow: 2px 0 0 2px #ddd;
-  }
-
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-
-    50% {
-      background-position: 100% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  .column {
-    float: left;
-    padding: 10px 0 0 10px;
-    height: 900px;
-  }
-
-  /* Mobile responsive */
-  @media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-    }
-  }
-</style>
-{{!--
-<script src="./js/bookApi.js"></script> --}}
+.library-div{
+  color:antiquewhite;
+}
+  </style>
