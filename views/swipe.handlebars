@@ -1,9 +1,10 @@
     <body class="body-class">
+     
       <div class="videoDiv image-class" id = "book-image">
-        <img
+        {{!-- <img
           class="image-class"
           src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-        />
+        /> --}}
 		
       </div>
       <div class="kapsayici">
@@ -28,10 +29,10 @@
 	<script src="js/bookApi.js"></script>
     <style>
       /* ###################### this is the slider */
+      
 .body-class {
-    background: #322F74;
     user-select: none;
-    background-image: url('../public/images/library.jpg') !important;
+    background-image: url('./images/library.jpg') !important;
     opacity: 0.9;
 }
 label {
@@ -44,9 +45,30 @@ label {
     filter: grayscale(0%);
 }
 
-img{
+#book-image{
+    width: 600px;
+    
+    margin: auto;
+   
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+ .dislike{
     width: 100px;
 }
+.like{
+    width: 100px;
+} 
+#likeInput{
+  display: none;
+}
+#dislikeInput{
+  display: none;
+}
+
 label {
     width: 100px;
     display: flex;
@@ -72,14 +94,14 @@ label {
 }
 .image-class {
     width: 600px;
-    height: 300px;
+   
     margin: auto;
     margin-top: 40px;
     overflow: hidden;
     display: flex;
     text-align: center;
     justify-content: center;
-    border-radius: 20px;
+    
 }
 .videoDiv {
     opacity: inherit;
@@ -87,13 +109,6 @@ label {
 .library {
   display: none;
 }
-.likeLabel{
-  position: relative;
-  right:50px;
-}
-.dislikeLabel{
-  position: relative;
-  right:50px;
-}
+
     </style>
     
