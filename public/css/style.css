@@ -76,10 +76,16 @@
   font-size: 7.5vw;
   z-index: 9;
 }
-/* --------------------------------------------------------this is the sign up htm page css ------------------------------*/
+/* --------------------------------------------------------this is the sign up / sigh up htm page css ------------------------------*/
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 * {
   box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 .body-class::before {
   content: "";
@@ -157,6 +163,13 @@ form {
   height: 100%;
   text-align: center;
 }
+.input-signin {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
 .input-signup {
   background-color: #eee;
   border: none;
@@ -164,6 +177,7 @@ form {
   margin: 8px 0;
   width: 100%;
 }
+
 .container {
   background-color: #fff;
   border-radius: 10px;
@@ -283,3 +297,4 @@ form {
   height: 40px;
   width: 40px;
   }
+
