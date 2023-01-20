@@ -12,18 +12,19 @@ router.get('/bookswipe', withAuth, async (req, res) => {
     res.render("swipe");
 });
 
-// // Get one comment
-// router.post('/', withAuth, async (req, res) => {
-//     try {
-//         const swipeData = await Swipe.create({
-//             comment_text: req.body.comment_text,
-//             user_id: req.session.user_id,
-//             post_id: req.body.post_id,
-//         });
-//         res.status(200).json(commentData);
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// });
+// Get one comment
+router.post('/liked', withAuth, async (req, res) => {
+    console.log(req.body.isbn);
+    try {
+        const swipeData = await Swipe.create({
+          isbn: req.body.isbn,
+          user_id: req.session.user_id,
+        });
+        res.status(200).json(swipeData);
+    } catch (err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+});
 
 module.exports = router;
