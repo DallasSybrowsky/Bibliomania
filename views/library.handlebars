@@ -1,7 +1,6 @@
 <body class="body-reviews">
   <div class="main">
     <div class="library-div">
-      <!-- <a><img class="logo" src="../../public/images/bookReviewStar.jpeg" alt="bibliomania logo"></a>  -->
       <h1 class="title-liked"> My Library </h1>
       <div class="like-div">
         {{#each finalLikes}}
@@ -11,7 +10,6 @@
     </div>
   </div>
 </body>
-
 </html>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
@@ -21,13 +19,13 @@
     padding: 0;
     box-sizing: border-box;
   }
+
   .main{
     position: absolute;
     top: 170px;
     text-align: center;
-}
+  }
 
-  
   .background {
     position: relative;
     width: 100%;
@@ -36,31 +34,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-overflow: auto;
-    
-    
-	background: linear-gradient(-45deg, #5E6BDA, #222746, #09151E, #0000);
-	background-size: 400% 400%;
-	animation: gradient 20s ease infinite;
-	height: 100vh;
+    overflow: auto;
+    background: linear-gradient(-45deg, #5E6BDA, #222746, #09151E, #0000);
+	  background-size: 400% 400%;
+	  animation: gradient 20s ease infinite;
+	  height: 100vh;
+  }+
 
-}
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
+  @keyframes gradient {
+	  0% {
+		  background-position: 0% 50%;
+	  }
+	  50% {
+		  background-position: 100% 50%;
+	  }
+	  100% {
+		  background-position: 0% 50%;
+	  }
+  }
 
-.library-div{
-  color:antiquewhite;
-}
+  .library-div{
+    color:antiquewhite;
+  }
   </style>
-
   <script src="./js/book_titles.js"></script>
