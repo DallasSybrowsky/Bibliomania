@@ -14,7 +14,11 @@
         <a><img class="logo" src="./images/bibliomania.png" alt="bibliomania logo"></a>
         <ul class="navbar-home">
             <li><a href="./" class="active">Home</a></li>
-            <li><a href="/about">About</a></li> 
+            {{#if swipesButton}}
+            <li><a href="/bookswipe">More Books!!</a></li> 
+            {{else}}
+            <li><a href="/library">My Library</a></li> 
+            {{/if}}
             {{#if logged_in}}
             <li><a href="./api/users/logout" id="logout">Logout</a></li>
             {{else}}
@@ -25,7 +29,11 @@
     <section class="background">
         {{{body}}}
         <!-- <h2 class="text">welcome to bibliomania</h2> -->
+        {{#if background_none}}    
+        <img src="./images/library.jpg" class="library" id="stock-background-photo" style="display: none;">
+        {{else}}
         <img src="./images/library.jpg" class="library" id="stock-background-photo">
+        {{/if}}
     </section>
     {{#if logged_in}}
     <script src="./js/logout.js"></script>

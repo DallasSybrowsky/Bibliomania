@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Books, History, Swipes } = require("../models");
 const withAuth = require("../utils/auth");
-const sequelize = require("../config/connection");
+// const sequelize = require("../config/connection");
 
 // Get all posts for homepage
 // http://localhost:3001/
@@ -65,8 +65,26 @@ router.get("/signup", (req, res) => {
 });
 
 // About Route
-router.get("/about", async (req, res) => {
-  res.render("about");
+router.get("/library", withAuth, async (req, res) => {
+  try {
+    const likes = await Swipes.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+      attributes: ['isbn']
+    });
+    const finalLikes = likes.map((project) => project.get({ plain: true }));
+    res.render("library", {
+      finalLikes: finalLikes,
+      logged_in: req.session.logged_in,
+      background_none: true,
+      swipesButton: true,
+    });
+    // res.status(200).json(likes);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
 });
 
 module.exports = router;
