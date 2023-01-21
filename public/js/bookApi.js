@@ -145,6 +145,7 @@ const bookFetch = async (word) => {
 
   console.log(targetBook);
   var like = false;
+  var like = false
   bookCover(isbn, like);
 };
 
@@ -175,15 +176,11 @@ const bookCover = async (isbn, like) => {
         // let coverURL = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
         // coverURL = chosenLink;
         // console.log(coverURL);
-        // bookImageEl.innerHTML = `<img src='${chosenLink}'/>`;
+        bookImageEl.innerHTML = `
+        <span id="library-icon" class="material-symbols-outlined">
+          local_library
+        </span>`;
         if (like) {
-          console.log(isbn);
-          // fetch('/api/swipe/liked', {
-          //   method: 'POST',
-          //   body: JSON.stringify({ isbn }),
-          //   headers: { "Content-Type": "application/json" }
-          // });
-          console.log("Liked!");
           bookFetch(chosenKeyWord);
         } else {
           bookFetch(chosenKeyWord);
