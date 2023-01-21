@@ -26,6 +26,6 @@ if (checkDigit == 10) {
   checkDigit = 0;
 }
 isbn.push(checkDigit);
-isbn = isbn.join('');
+isbn = isbn.join("");
 console.log(isbn);
 // console.log(isbn, total, total % 10);

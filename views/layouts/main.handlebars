@@ -1,42 +1,52 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>bibliomania</title>
-    {{!-- <link rel="stylesheet" href="./css/signup.css"> --}}
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="data:;base64,=">
-</head>
-<body class="body-home">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="data:;base64,=" />
+  </head>
+  <body class="body-home">
     <header class="grad">
-        <a><img class="logo" src="./images/bibliomania.png" alt="bibliomania logo"></a>
-        <ul class="navbar-home">
-            <li><a href="./" class="active">Home</a></li>
-            {{#if swipesButton}}
-            <li><a href="/bookswipe">More Books!!</a></li> 
-            {{else}}
-            <li><a href="/library">My Library</a></li> 
-            {{/if}}
-            {{#if logged_in}}
-            <li><a href="./api/users/logout" id="logout">Logout</a></li>
-            {{else}}
-            <li><a href="./signup">Login</a></li>
-            {{/if}}
-        </ul>
+      <a><img
+          class="logo"
+          src="./images/bibliomania.png"
+          alt="bibliomania logo"
+        /></a>
+      <ul class="navbar-home">
+        <li><a href="./" class="active">Home</a></li>
+        {{#if swipesButton}}
+          <li><a href="/bookswipe">More Books!!</a></li>
+        {{else}}
+          <li><a href="/library">My Library</a></li>
+        {{/if}}
+        {{#if logged_in}}
+          <li><a href="./api/users/logout" id="logout">Logout</a></li>
+        {{else}}
+          <li><a href="./signup">Login</a></li>
+        {{/if}}
+      </ul>
     </header>
     <section class="background">
-        {{{body}}}
-        <!-- <h2 class="text">welcome to bibliomania</h2> -->
-        {{#if background_none}}    
-        <img src="./images/library.jpg" class="library" id="stock-background-photo" style="display: none;">
-        {{else}}
-        <img src="./images/library.jpg" class="library" id="stock-background-photo">
-        {{/if}}
+      {{{body}}}
+      {{#if background_none}}
+        <img
+          src="./images/library.jpg"
+          class="library"
+          id="stock-background-photo"
+          style="display: none;"
+        />
+      {{else}}
+        <img
+          src="./images/library.jpg"
+          class="library"
+          id="stock-background-photo"
+        />
+      {{/if}}
     </section>
     {{#if logged_in}}
-    <script src="./js/logout.js"></script>
+      <script src="./js/logout.js"></script>
     {{/if}}
-</body>
+  </body>
 </html>
