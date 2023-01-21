@@ -1,6 +1,7 @@
 <div class="container" id="container">
   <div class="form-container sign-up-container signup-form">
     <form action="#">
+      {{!-- // this is the form for the signup page --}}
       <h1>Create your Account</h1>
       <input class="input-signup" type="text" placeholder="Name" id="name-signup" />
       <input class="input-signup" type="email" placeholder="Email" id="email-signup" />
@@ -9,6 +10,7 @@
     </form>
   </div>
   <div class="form-container sign-in-container login-form">
+    {{!-- this is the form for the login page --}}
     <form action="#">
       <h1>Sign in to Bibliomania</h1>
       <input class="input-signup" type="email" placeholder="Email" id="email-login"/>
@@ -19,11 +21,13 @@
   <div class="overlay-container">
     <div class="overlay">
       <div class="overlay-panel overlay-left">
+         {{!-- this is the overlay for the login page --}}
         <h1>Welcome Back!</h1>
         <p>Please login to continue your journey</p>
         <button class="ghost" id="signIn">Sign In</button>
       </div>
       <div class="overlay-panel overlay-right">
+         {{!-- this is the overlay for the signup page --}}
         <h1>Welcome to Bibliomania!</h1>
         <p>Sign up and start your journey</p>
         <button class="ghost" id="signUp">Sign Up</button>
@@ -31,4 +35,5 @@
     </div>
   </div>
 </div>
+ {{!-- this is  the script for the signUp page --}}
 <script src="./js/signup.js"></script>

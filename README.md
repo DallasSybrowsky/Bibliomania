@@ -24,3 +24,4 @@ A new way to find a new book to read
 # THEN I'm given the option to logout
 # WHEN I log out
 # THEN I'm taken back to the homepage
+
