@@ -1,38 +1,34 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection.js');
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
+const sequelize = require("../config/connection.js");
 
 class Swipes extends Model {}
 
 Swipes.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        isbn: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            // references: {
-            //     model: 'user',
-            //     key: 'id'
-            // }
-        }
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'swipes',
-    }
+    isbn: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "swipes",
+  }
 );
 
 module.exports = Swipes;

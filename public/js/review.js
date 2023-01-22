@@ -1,3 +1,4 @@
+// This file contains the code for the review page  routes  and the API  routes  for the review page.
 async function commentFormHandler(event) {
   event.preventDefault();
   const comment_text = document
@@ -6,6 +7,7 @@ async function commentFormHandler(event) {
   const post_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
+  // this is the event handler for the functionality of the comment  form for the redirect  to the review  page  for the comment form
   if (comment_text) {
     const response = await fetch("/api/comments", {
       method: "POST",
@@ -17,6 +19,7 @@ async function commentFormHandler(event) {
         "Content-Type": "application/json",
       },
     });
+    // this is the event handler for the functionality of the comment  form for the redirect  to the review  page  for the comment form
     if (response.ok) {
       document.location.reload();
     } else {

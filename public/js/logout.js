@@ -1,3 +1,4 @@
+//  This file is used to log out a user and redirect them to the homepage.
 const logout = async () => {
   const response = await fetch("/api/users/logout", {
     method: "POST",
