@@ -1,8 +1,9 @@
+//  this is the route for the review model
 const router = require("express").Router();
 const { User} = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// Get all posts
+// Get all posts  and include the username of the poster  
 router.get("/", async (req, res) => {
   try {
     const commentData = await Comment.findAll({
@@ -33,7 +34,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get one post
+//  Get a single post  and include the username of the poster
 router.get("/:id", async (req, res) => {
   try {
     const commentData = await Comment.findByPk(req.params.id, {
@@ -69,7 +70,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Create a post
+// Create a post  and include the username of the poster
 router.post("/", withAuth, async (req, res) => {
   try {
     const commentData = await Comment.create(req.body);
@@ -84,7 +85,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-// Update a post
+//  Update a post  and include the username of the poster
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const commentData = await Comment.update(req.body);
@@ -106,7 +107,7 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
-// Delete a post
+//  Delete a post  and include the username of the poster
 router.delete("/:id", withAuth, async (req, res) => {
     try {
         const commentData = await Comment.destroy({

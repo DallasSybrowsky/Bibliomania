@@ -1,3 +1,4 @@
+//
 const keyWords = [
   "the",
   "self-help",
@@ -105,7 +106,7 @@ const keyWords = [
   "Vince Flynn",
   "Jack Reacher",
 ];
-
+//
 const defaultLinks = [
   "https://covers.openlibrary.org/b/isbn/9781511327794-L.jpg",
   "https://covers.openlibrary.org/b/isbn/0008354553-L.jpg",
@@ -118,7 +119,7 @@ const defaultLinks = [
   "https://covers.openlibrary.org/b/isbn/1439501661-L.jpg",
   "https://covers.openlibrary.org/b/isbn/0140444785-L.jpg",
 ];
-
+//  this file is used to fetch book data from openlibrary.org
 const bookImageEl = document.querySelector("#book-image");
 const likeCover = document.querySelector(".like");
 const dislikeCover = document.querySelector(".dislike");
@@ -127,7 +128,7 @@ const chosenKeyWord = keyWords[Math.floor(Math.random() * keyWords.length)];
 const chosenLink =
   defaultLinks[Math.floor(Math.random() * defaultLinks.length)];
 
-// fetch random isbn from array
+//  this file is used to fetch book data from openlibrary.org
 const bookFetch = async (word) => {
   const url = `https://openlibrary.org/search.json?q=${word}`;
 
@@ -140,15 +141,15 @@ const bookFetch = async (word) => {
   while (!targetBook.isbn) {
     targetBook = data.docs[Math.floor(Math.random() * data.docs.length)];
   }
-
+  //  thi
   const isbn = targetBook.isbn[0];
 
   console.log(targetBook);
   var like = false;
-  var like = false
+  var like = false;
   bookCover(isbn, like);
 };
-
+//  this file is used to fetch book data from openlibrary.org
 const bookFetchLike = async () => {
   const image = document.querySelector("#book-image").children;
   const url = image[0].src;
@@ -165,7 +166,7 @@ const bookFetchLike = async () => {
   bookFetch(chosenKeyWord);
 };
 
-// insert isbn into link
+// insert isbn into link  to get book cover image
 const bookCover = async (isbn, like) => {
   let coverURL = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
   bookImageEl.innerHTML = `<img src='${coverURL}'/>`;
@@ -173,9 +174,6 @@ const bookCover = async (isbn, like) => {
     .then((res) => res.text())
     .then((data) => {
       if (data === "not found" || data === "internal server error") {
-        // let coverURL = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
-        // coverURL = chosenLink;
-        // console.log(coverURL);
         bookImageEl.innerHTML = `
         <span id="library-icon" class="material-symbols-outlined">
           local_library
@@ -188,15 +186,15 @@ const bookCover = async (isbn, like) => {
       }
     });
 };
-
+//  this file is used to fetch book data from openlibrary.org  that have been liked
 likeCover.addEventListener("click", function () {
   bookFetchLike();
 });
-
+//  this file is used to fetch book data from openlibrary.org  that have been disliked
 dislikeCover.addEventListener("click", function () {
   bookFetch(chosenKeyWord);
 });
-
+//  this file is used to fetch book data from openlibrary.org   that have been liked
 bookFetch(chosenKeyWord);
 
 document.body.className = "body-class";

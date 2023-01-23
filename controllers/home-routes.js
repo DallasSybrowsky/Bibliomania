@@ -1,17 +1,13 @@
 const router = require("express").Router();
 const { User, Books, History, Swipes } = require("../models");
 const withAuth = require("../utils/auth");
-// const sequelize = require("../config/connection");
-
-// Get all posts for homepage
-// http://localhost:3001/
-// renders login
+//  Get all posts  and include the username of the poster
 router.get("/", async (req, res) => {
   console.log("login");
   res.render("login", { logged_in: req.session.logged_in });
 });
 
-// Dashboard Route
+//  Get a single post  and include the username of the poster
 router.get("/dashboard", withAuth, async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect("/login");
@@ -34,7 +30,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     }
   }
 });
-
+//  Get a single post  and include the username of the poster
 router.get("/bookswipe", withAuth, async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect("/signup");
@@ -45,7 +41,7 @@ router.get("/bookswipe", withAuth, async (req, res) => {
   }
 });
 
-// Login Route
+// Get a single post  and include the username of the poster
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
@@ -54,24 +50,20 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// Signup Route
+// Get a single post  and include the username of the poster
 router.get("/signup", (req, res) => {
-  // if (req.session.logged_in) {
-  //   res.redirect("/");
-  //   return;
-  // }
   console.log("Test");
   res.render("signup");
 });
 
-// About Route
+// Get a single post  and include the username of the poster
 router.get("/library", withAuth, async (req, res) => {
   try {
     const likes = await Swipes.findAll({
       where: {
         user_id: req.session.user_id,
       },
-      attributes: ['isbn']
+      attributes: ["isbn"],
     });
     const finalLikes = likes.map((project) => project.get({ plain: true }));
     res.render("library", {
@@ -80,7 +72,6 @@ router.get("/library", withAuth, async (req, res) => {
       background_none: true,
       swipesButton: true,
     });
-    // res.status(200).json(likes);
   } catch (error) {
     console.log(error);
     res.status(500).json(error);

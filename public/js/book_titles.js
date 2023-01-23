@@ -1,3 +1,4 @@
+// This file is used to fetch the book titles from the Open Library API and display them on the bookswipe page.
 const titleFetch = async (isbn) => {
   let coverURL = `https://openlibrary.org/isbn/${isbn}.json`;
   const response = await fetch(coverURL);
@@ -10,7 +11,7 @@ const titleFetch = async (isbn) => {
     return data.title;
   }
 };
-
+//  This file is used to fetch the book titles from the Open Library API and display them on the bookswipe page.
 const parentEl = document.querySelector(".like-div").children;
 
 const array = [];

@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Swipes } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Get all comments
+//  Get all posts  and include the username of the poster
 router.get('/bookswipe', withAuth, async (req, res) => {
 
     if (!req.session.logged_in) {
@@ -12,7 +12,7 @@ router.get('/bookswipe', withAuth, async (req, res) => {
     res.render("swipe");
 });
 
-// post likes
+//  Get a single post  and include the username of the poster
 router.post('/liked', withAuth, async (req, res) => {
     console.log(req.body.isbn);
     try {

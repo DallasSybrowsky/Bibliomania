@@ -1,3 +1,4 @@
+// This file is for the login page  routes  and the API  routes  for the login page.
 const loginFormHandler = async (event) => {
   event.preventDefault();
   const username = document.querySelector("#username-signup").value.trim();
