@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Swipes } = require('../../models');
 const withAuth = require('../../utils/auth');
-
+"/api/swipe/bookswipe"
 //  Get all posts  and include the username of the poster
 router.get('/bookswipe', withAuth, async (req, res) => {
 
